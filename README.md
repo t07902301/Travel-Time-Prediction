@@ -21,7 +21,7 @@ Day 13
    ![avatar](images/LSTM.png)
     目前我参考的这个模型是建立在已找到路段之间关联比较大的情况下。原作者是通过trajectory data来找到一些流量比较大的路径。这样的做法应该可以保证路段之间有较大的spatial relation，所以直接采用这种stacked LSTM模型，会有比较好的预测效果。
 
-    而我目前将聚类和这种模型相结合的做法，应该可以探究路段之间的spatial relation。
+    而我目前将聚类和这种模型相结合的做法，感觉不大实用，而且实验的结果也无法体现聚类的优势。
 
     例如，对于现在试验的路径，在理想情况下可以被分类算法大约划分成5个cluster。
 ![avatar](images/map.jpg)
