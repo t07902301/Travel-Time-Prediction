@@ -1,1 +1,1 @@
-__all__=['cluster']
+__all__=['cluster','cluster_mean']
