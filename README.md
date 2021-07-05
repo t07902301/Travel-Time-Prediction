@@ -1,33 +1,31 @@
-# 记录
-## 数据可视化
-### 目前一条试验路径在13天的数据分布
-![avatar](images/xinhua_11.png)
+# 项目说明
+## 目录
+### 数据
+原始数据下载地址：
+https://pan.baidu.com/s/1uzYLjrFpbcIOdA5pobvLlg 提取密码：qmxk
 
-左下角注明了各颜色对应的路段。横轴代表从8-22点，采样间隔5分钟的时间点。***目前，我打算试一下仅根据晚高峰的旅行时间来聚类，以及kmeans算法***。
+本实验运用的数据储存在train.npy,test.npy,train_stdn.npy,test_stdn.npy这些文件中。选取数据的特征在论文的“实验数据”的部分说明。在stdn实验部分，训练集为前31天，其中第1-3天不可用。测试集为总数据集的最后10天，其中第1-3天不可用。划分的依据可以参考STDN的原始论文的实验实施部分。
 
-### 时空关联矩阵
-Day 1
-![avatar](images/xinhua_11_day1.png)
+### 脚本
+1. 数据处理
+    1. 清洗原始数据、调整数据的格式（间隔1分钟->间隔5分钟）：data extract.ipynb
+    2. 对新数据集进行分析：EDA（Exploratory Data Analysis）
+    3. 筛选出拥堵路段：FILTER
+    4. 得到模型的训练、测试集：get_inputs
+2. 对路段进行聚类
+   1. SFHC聚类算法实作：utils/clustering.py
+   2. 使用SFHC和其他聚类算法：hc.ipynb
+3. 搭建并训练结合聚类算法的各模型
+   stdn.py,mlp.py,cnn.py,dpf.py 命令行的使用方法可以查看utils/basic_functions中get_arguments的定义。
 
-Day 7
-![avatar](images/xinhua_11_day7.png)
+        使用示例：
+           * python stdn.py -m sfhc -t 70 -n stdn
+           * python mlp.py -m hc -t 70 -n stdn
+4. 测试模型
+   mock.py 使用方法和训练模型的相同
 
-Day 13
-![avatar](images/xinhua_11_day13.png)
-
-
-## 疑问：
-1. 如何解释聚类算法在所设计的网络中起的作用？
-   ![avatar](images/LSTM.png)
-    目前我参考的这个模型是建立在已找到路段之间关联比较大的情况下。原作者是通过trajectory data来找到一些流量比较大的路径。这样的做法应该可以保证路段之间有较大的spatial relation，所以直接采用这种stacked LSTM模型，会有比较好的预测效果。
-
-    而我目前将聚类和这种模型相结合的做法，应该可以探究路段之间的spatial relation。
-
-    例如，对于现在试验的路径，在理想情况下可以被分类算法大约划分成5个cluster。
-![avatar](images/map.jpg)
-    如果在地图上具体研究每个cluster周围的建筑，可能会发现有不同的地理特性，导致在同一时段的旅行时间的变化会不一样。
-    
-1. 从其中三天的信息中，是否可以确认网络中用于转化数据维度的全连接层的激活函数需要使用sigmoid而不是类似线性的RELU呢？
-   
-    (网络结构图)
-    ![avatar](images/model.png)
+    测试结果的可视化脚本：error_visualize.ipynb
+### 可用模型
+   用于测试的各模型放在models文件夹中。由于在训练STDN的模型时，无法保存模型的结构和权重。因此，在测试STDN模型时，选择先重新建立模型，再加载先前训练得到的权重。
+### 备注
+   STDN的原始论文中有其实验的GitHub链接，可以用于参考从而复现模型。
