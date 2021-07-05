@@ -13,7 +13,7 @@ https://pan.baidu.com/s/1uzYLjrFpbcIOdA5pobvLlg 提取密码：qmxk
     3. 筛选出拥堵路段：FILTER
     4. 得到模型的训练、测试集：get_inputs
 2. 对路段进行聚类
-   1. SFHC聚类算法实作：utils/clustering.py
+   1. 定义SFHC聚类算法和传统层次聚类的函数：utils/clustering.py
    2. 使用SFHC和其他聚类算法：hc.ipynb
 3. 搭建并训练结合聚类算法的各模型
    stdn.py,mlp.py,cnn.py,dpf.py 命令行的使用方法可以查看utils/basic_functions中get_arguments的定义。
