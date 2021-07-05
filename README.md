@@ -1,11 +1,18 @@
 # 项目说明
-   本项目中的jupyter脚本并未记录代码的执行过程，仅供参考本项目的数据处理和聚类部分的代码实现方式。
+   本项目中的jupyter脚本并未记录代码的执行过程，仅供参考针对原始数据的预处理和聚类部分的代码实现方式。
 ## 目录
 ### 数据
 原始数据下载地址：
 https://pan.baidu.com/s/1uzYLjrFpbcIOdA5pobvLlg 提取密码：qmxk
 
-本实验运用的数据储存在train.npy,test.npy,train_stdn.npy,test_stdn.npy这些文件中。选取数据的特征在论文的“实验数据”的部分说明。在stdn实验部分，训练集为前31天，其中第1-3天不可用。测试集为总数据集的最后10天，其中第1-3天不可用。划分的依据可以参考STDN的原始论文的实验实施部分。
+整合后的数据下载地址：
+https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
+
+整合后的数据仅是由原始数据中的卡口状态数据提取得到。其中也包括了卡口流量和卡口状态的对应信息文件。
+
+本实验运用的数据储存在extraced data文件夹中的train.npy,test.npy,train_stdn.npy,test_stdn.npy这些文件中。选取数据的特征在论文的“实验数据”的部分说明。在stdn实验部分，训练集为前31天，其中第1-3天不可用。测试集为总数据集的最后10天，其中第1-3天不可用。划分的依据可以参考STDN的原始论文的实验实施部分。
+
+**数据处理的大致过程为：卡口状态数据->整合后的数据->train.npy等**
 
 ### 脚本
 1. 数据处理
@@ -34,7 +41,6 @@ https://pan.baidu.com/s/1uzYLjrFpbcIOdA5pobvLlg 提取密码：qmxk
     extracted data文件夹中包含了
     1. 从原始数据集中提取的训练集、测试集（STDN的训练集、测试集和其他模型有所不同，所以分开存放）。如test.npy、test_stdn.npy
     2. 原始数据集中各天对应的星期几：day_of_week.npy
-    3. 其余文件的内容如它们各自的名称所示
 ### 备注
    STDN的原始论文中有其实验的GitHub链接，可以用于参考从而复现模型。（STDN的权重模型尚未从服务器中拉取下来）
    
