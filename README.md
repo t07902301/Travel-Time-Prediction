@@ -28,4 +28,4 @@ https://pan.baidu.com/s/1uzYLjrFpbcIOdA5pobvLlg 提取密码：qmxk
 ### 可用模型
    用于测试的各模型放在models文件夹中。由于在训练STDN的模型时，无法保存模型的结构和权重。因此，在测试STDN模型时，选择先重新建立模型，再加载先前训练得到的权重。
 ### 备注
-   STDN的原始论文中有其实验的GitHub链接，可以用于参考从而复现模型。
+   STDN的原始论文中有其实验的GitHub链接，可以用于参考从而复现模型。（STDN的权重模型尚未从服务器中拉取下来）
