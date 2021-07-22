@@ -12,7 +12,7 @@ https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
 
 本实验中运用到的数据储存在extracted data文件夹中的train.npy,test.npy,train_stdn.npy,test_stdn.npy这些文件中 **(从整合后的数据中挑选出实验路段）**。选取数据的特征在论文的“实验数据”的部分说明。在stdn实验部分，训练集为前31天，其中第1-3天不可用。测试集为总数据集的最后10天，其中第1-3天不可用。划分的依据可以参考STDN的原始论文的实验实施部分。
 
-**生成实验数据的过程大致为：卡口状态数据->整合后的数据->train.npy等**
+**生成实验数据的过程大致为：卡口状态数据-->data extract.npy-->整合后的完整数据-->EDA.npy-->Filter.npy-->get_inputs.npy->train.npy等**
 
 ### 脚本
 1. 数据处理
@@ -23,6 +23,7 @@ https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
 2. **核心部分：对路段进行聚类 **
    1. 定义SFHC聚类算法和传统层次聚类的函数：utils/clustering.py
    2. 使用SFHC和其他聚类算法对数据集/交通网络进行聚类：hc.ipynb
+  **聚类过程：train.npy-->mean_mat.npy-->hc.ipynb-->聚类结果** 
 3. 搭建并训练结合聚类算法的各模型
    stdn.py,mlp.py,cnn.py,dpf.py 命令行的使用方法可以查看utils/basic_functions中get_arguments的定义。
 
