@@ -22,7 +22,7 @@ https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
     4. 得到模型的训练、测试集：get_inputs
 2. **核心部分**：对路段进行聚类 
    1. 定义SFHC聚类算法和传统层次聚类的函数：utils/clustering.py
-   2. 使用SFHC和其他聚类算法：hc.ipynb
+   2. 使用SFHC和其他聚类算法对数据集/交通网络进行聚类：hc.ipynb
 3. 搭建并训练结合聚类算法的各模型
    stdn.py,mlp.py,cnn.py,dpf.py 命令行的使用方法可以查看utils/basic_functions中get_arguments的定义。
 
