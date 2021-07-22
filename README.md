@@ -8,7 +8,7 @@ https://pan.baidu.com/s/1uzYLjrFpbcIOdA5pobvLlg 提取密码：qmxk
 整合后的数据下载地址：
 https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
 
-整合后的数据大部分是由原始数据中的**卡口状态**数据提取得到。同时，该文件夹也包括了卡口流量和卡口状态的对应信息文件。**注：卡口状态**
+整合后的数据大部分是由原始数据中的**卡口状态**数据提取得到。同时，该文件夹也包括了卡口流量和卡口状态的对应信息文件。**注：卡口状态对应了各路段的旅行时间**
 
 本实验运用的数据储存在extracted data文件夹中的train.npy,test.npy,train_stdn.npy,test_stdn.npy这些文件中 **(从整合后的数据中挑选出实验路段）**。选取数据的特征在论文的“实验数据”的部分说明。在stdn实验部分，训练集为前31天，其中第1-3天不可用。测试集为总数据集的最后10天，其中第1-3天不可用。划分的依据可以参考STDN的原始论文的实验实施部分。
 
@@ -18,9 +18,9 @@ https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
 1. 数据处理
     1. 清洗原始数据、调整数据的格式（间隔1分钟->间隔5分钟）：data extract.ipynb
     2. 对新数据集进行关于统计特征的分析：EDA（Exploratory Data Analysis）
-    3. 筛选出拥堵路段（时速20km/h以下的比例超过50%）：FILTER
+    3. 筛选出拥堵路段（时速20km/h以下的比例超过50%）：Filter
     4. 得到模型的训练、测试集：get_inputs
-2. 对路段进行聚类
+2. **核心部分**：对路段进行聚类 
    1. 定义SFHC聚类算法和传统层次聚类的函数：utils/clustering.py
    2. 使用SFHC和其他聚类算法：hc.ipynb
 3. 搭建并训练结合聚类算法的各模型
