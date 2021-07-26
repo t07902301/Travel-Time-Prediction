@@ -27,7 +27,7 @@ https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
   **聚类过程：train.npy-->mean_mat.npy-->hc.ipynb-->聚类结果** 
   
 3. 搭建并训练结合聚类算法的各模型
-   stdn.py,mlp.py,cnn.py,dpf.py 命令行的使用方法可以查看utils/basic_functions中get_arguments的定义。
+   stdn.py,mlp.py,cnn.py,dpf.py 命令行的使用说明可以查看utils/basic_functions中get_arguments的定义。
 
         使用示例：
            * python stdn.py -m sfhc -t 70 -n stdn
@@ -41,7 +41,7 @@ https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
    
    如果不需要使用训练好的模型，则无需下载models文件夹。
 ### 整合后的数据
-    extracted data文件夹中包含了
+    "实验数据"文件夹中包含了
     1. 从原始数据集中提取的训练集、测试集（STDN的训练集、测试集和其他模型有所不同，所以分开存放）。如test.npy、test_stdn.npy
     2. 原始数据集中各天对应的星期几：day_of_week.npy
 ### 备注
