@@ -19,8 +19,8 @@ https://pan.baidu.com/s/179MYRqNzmgH6tI9g0LjtWw 提取密码：d93a
     1. 清洗原始数据、调整数据的格式（间隔1分钟->间隔5分钟）：data extract.ipynb
     2. 对新数据集进行关于统计特征的分析：EDA（Exploratory Data Analysis）
     3. 筛选出拥堵路段（时速20km/h以下的比例超过50%）：Filter
-    4. 得到模型的训练、测试集：get_inputs
-2. **核心部分：对路段进行聚类 **
+    4. 得到模型的训练、测试集,并对两个数据集进行指数移动滑动平均法（EMA)：get_inputs
+2. **核心部分：对路段进行聚类**
    1. 定义SFHC聚类算法和传统层次聚类的函数：utils/clustering.py
    2. 使用SFHC和其他聚类算法对数据集/交通网络进行聚类：hc.ipynb
    
